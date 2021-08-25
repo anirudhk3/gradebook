@@ -1,1 +1,22 @@
+h3{
+  text-align: center;
+}
 
+hr{
+  margin-top: 10px;
+}
+
+.formdiv {
+  border: 1px solid;
+  margin-top: 10%;
+  width: 400px;
+}
+
+.loginform {
+  margin: 10px auto 20px auto;
+  width: 70%;
+}
+
+#gradebook_title {
+  text-align: center;
+}
