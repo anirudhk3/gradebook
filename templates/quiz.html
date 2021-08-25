@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block layout %}
+{{ super() }}
+{% include "navbar_layout.html" %}
+{% block nav %}
+{% endblock nav %}
+
+{% if msg['success'] %}
+  <div class="alert alert-success" role="alert">
+    <h3>Quiz Has Been Add</h3>
+  </div>
+{% endif %}
+
+{% if msg['error'] %}
+  <div class="alert alert-danger" role="alert">
+    <h3>Error: Fill In All Fields and with Nonexistent Information</h3>
+  </div>
+{% endif %}
+
+
+
+<div class="container">
+  <h2>Add Quiz</h2>
+  <hr>
+  <form action="" method="post">
+      <div class="form-group row">
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Quiz Subject" name="subject">
+        </div>
+        <div class="col-md-4">
+          <input type="number" class="form-control" placeholder="Number of Questions" name="num_of_questions">
+        </div>
+        <div class="col-md-4">
+          <input type="date" class="form-control" placeholder="Date of Quiz" name="quiz_date">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Save Quiz</button>
+  </form>
+  <br>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Quiz Subject</th>
+        <th>Number of Questions</th>
+        <th>Date Administered</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for quiz in all_quizzes %}
+      <tr>
+        <td>{{quiz[1]}}</td>
+        <td>{{quiz[2]}}</td>
+        <td>{{quiz[3]|datetimeformat }}</td>
+        <td>
+      {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock layout%}
